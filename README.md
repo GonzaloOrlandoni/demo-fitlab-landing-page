@@ -1,28 +1,27 @@
 # Landing Page - GYM Fitness
 
-![Captura de Pantalla del Proyecto](https://i.imgur.com/fitlab.png) 
-
-## Descripción del Proyecto
-
-Este proyecto es una landing page moderna y responsive para un gimnasio, desarrollada como parte de mi formación en desarrollo web. El objetivo principal fue poner en práctica mis habilidades de maquetación avanzada con HTML5 y SASS, asegurando una experiencia de usuario fluida en distintos dispositivos.
+Este proyecto es una landing page moderna y responsive para un gimnasio. El principal objetivo fue aplicar técnicas avanzadas de maquetación y diseño utilizando SASS para crear una experiencia de usuario atractiva y fluida en cualquier dispositivo.
 
 ---
 
 ### 🚀 Demo en Vivo
 
-**Puedes ver el proyecto en funcionamiento aquí:** [Enlace a la Demo] ---
+**Puedes visitar la versión online aquí:** [https://landingpage-gym-gold.vercel.app/](https://landingpage-gym-gold.vercel.app/)
+
+---
 
 ### 🛠️ Tecnologías Utilizadas
 
 * **HTML5:** Para la estructura semántica y el contenido de la web.
-* **SASS (SCSS):** Para la estilización avanzada, utilizando variables, anidación y una estructura de archivos modular que facilita el mantenimiento.
-* **CSS3:** Propiedades modernas para el diseño y las animaciones.
-* **Git & GitHub:** Para el control de versiones y el alojamiento del código.
+* **SASS (SCSS):** Utilizado para una estilización eficiente y modular, aprovechando variables, anidación y parciales.
+* **CSS3:** Propiedades modernas para el diseño responsive y detalles visuales.
+* **Git & GitHub:** Para el control de versiones.
+* **Vercel:** Para el despliegue y hosting.
 
 ---
 
-### ✨ Características Principales
+### ✨ Características Destacadas
 
-* **Diseño Responsive:** Totalmente adaptable a pantallas de escritorio, tablets y móviles.
-* **Estructura Modular con SASS:** Código CSS organizado en parciales para una mejor escalabilidad.
-* **Maquetación Moderna:** Uso de Flexbox y/o Grid para la disposición de los elementos.
+* **Diseño 100% Responsive:** Adaptable a pantallas de escritorio, tablets y móviles.
+* **Arquitectura SASS:** Código CSS organizado de forma escalable y fácil de mantener.
+* **Maquetación Moderna:** Uso de Flexbox y CSS Grid para un layout robusto y flexible.
