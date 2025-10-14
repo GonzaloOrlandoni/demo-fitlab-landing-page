@@ -1,6 +1,6 @@
 # Landing Page - GYM Fitness
 
-![Captura de Pantalla del Proyecto](https://i.imgur.com/URL_DE_TU_IMAGEN.png) ## Descripción del Proyecto
+![Captura de Pantalla del Proyecto](https://i.imgur.com/fitlab.png) ## Descripción del Proyecto
 
 Este proyecto es una landing page moderna y responsive para un gimnasio, desarrollada como parte de mi formación en desarrollo web. El objetivo principal fue poner en práctica mis habilidades de maquetación avanzada con HTML5 y SASS, asegurando una experiencia de usuario fluida en distintos dispositivos.
 
