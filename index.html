@@ -1,347 +1,230 @@
 <!DOCTYPE html>
 <html lang="es">
-   
   <head>
-       
     <meta charset="UTF-8" />
-       
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       
     <meta name="description" content="FitLab - Entrenamiento y planes personalizados." />
-       
     <title>FitLab</title>
-       
     <link rel="icon" href="images/imagesfavicon.jpg" />
-       
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
-           
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-       
     <link rel="stylesheet" href="style.css" />
-     
   </head>
-   
   <body>
-       
     <header>
-           
       <nav id="navbar">
-                <a href="#hero" class="logo">FitLab</a>                
+        <a href="#hero" class="logo">FitLab</a>
         <ul class="nav-links" id="nav-links">
-                   
           <li><a href="#hero">Inicio</a></li>
-                   
           <li><a href="#services">Servicios</a></li>
-                   
           <li><a href="#planes">Planes</a></li>
-                   
           <li><a href="#faq">FAQ</a></li>
-                   
           <li><a href="#testimonials">Testimonios</a></li>
-                   
           <li><a href="#contact" class="btn btn--cta">ASOCIATE</a></li>
-                 
         </ul>
-               
         <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
-                    <span></span> <span></span> <span></span>                
+          <span></span> <span></span> <span></span>
         </button>
-             
       </nav>
-         
     </header>
 
-       
     <main>
-           
       <section id="hero">
-               
         <div class="hero-overlay"></div>
-               
         <div class="hero-content">
-                   
           <h1>Bienvenido a FitLab</h1>
-                   
           <p>Transformá tu cuerpo con nuestros planes personalizados</p>
-                    <a href="#planes" class="btn btn--primary">Comenzar</a>                  
+          <a href="#planes" class="btn btn--primary">Comenzar</a>
         </div>
-             
       </section>
-                       
-      <section id="services">
-               
+
+      <section id="services" class="scroll-reveal">
         <h2>Servicios</h2>
         <div class="main-container">
-                   
           <div class="services-grid">
-                       
             <div class="service-card">
-                            <img src="images/entrenamiento.jpg" alt="Entrenamiento Personalizado" />              
+              <img src="images/entrenamiento.jpg" alt="Entrenamiento Personalizado" />
               <h3>Entrenamiento Personalizado</h3>
-                           
               <p>Planes adaptados a tus objetivos y nivel físico.</p>
-                            <a href="#contact" class="btn btn--secondary">Más info</a>                        
+              <a href="#contact" class="btn btn--secondary">Más info</a>
             </div>
-                       
             <div class="service-card">
-                            <img src="images/clases-grupales.jpg" alt="Clases Grupales" />                            
+              <img src="images/clases-grupales.jpg" alt="Clases Grupales" />
               <h3>Clases Grupales</h3>
-                           
               <p>Yoga, HIIT, Funcional y más. Clases diseñadas para todos los niveles.</p>
-                            <a href="#contact" class="btn btn--secondary">Más info</a>                        
+              <a href="#contact" class="btn btn--secondary">Más info</a>
             </div>
-                       
             <div class="service-card">
-                            <img src="images/nutricion.jpg" alt="Planes Nutricionales" />                            
+              <img src="images/nutricion.jpg" alt="Planes Nutricionales" />
               <h3>Planes Nutricionales</h3>
-                           
               <p>Planes adaptados a tu estilo de vida, con seguimiento profesional.</p>
-                            <a href="#contact" class="btn btn--secondary">Más info</a>                        
+              <a href="#contact" class="btn btn--secondary">Más info</a>
             </div>
-                     
           </div>
         </div>
-             
       </section>
 
-           
-      <section id="planes">
-               
+      <section id="planes" class="scroll-reveal">
         <h2>Planes de Membresía</h2>
         <div class="main-container">
-                   
           <div class="plan-toggle">
-                        <button id="monthly-btn" class="toggle-btn active">Mensual</button>                      
-            <button id="annual-btn" class="toggle-btn">Anual</button>                  
+            <button id="monthly-btn" class="toggle-btn active">Mensual</button>
+            <button id="annual-btn" class="toggle-btn">Anual</button>
           </div>
-                   
           <div class="plans-grid">
-                       
             <div class="plan-card">
-                           
               <h3>Básico</h3>
-                           
               <p class="price" data-monthly="$39.000 /mes" data-annual="$468.000 /año">$39.000 /mes</p>
-                           
               <p>Acceso limitado, 2 clases grupales, asesoramiento inicial.</p>
-                            <a href="#contact" class="btn btn--secondary">Elegir Plan</a>                    
+              <a href="#contact" class="btn btn--secondary">Elegir Plan</a>
             </div>
-                       
             <div class="plan-card plan-premium">
-                           
               <h3>Premium</h3>
-                           
               <p class="price" data-monthly="$70.000 /mes" data-annual="$840.000 /año">$70.000 /mes</p>
-                           
               <p>Acceso completo, todas las clases, coaching semanal.</p>
-                            <a href="#contact" class="btn btn--primary">Elegir Plan</a>                    
+              <a href="#contact" class="btn btn--primary">Elegir Plan</a>
             </div>
-                       
             <div class="plan-card">
-                           
               <h3>Avanzado</h3>
-                           
               <p class="price" data-monthly="$60.000 /mes" data-annual="$720.000 /año">$60.000 /mes</p>
-                           
               <p>Entrenamiento personalizado, nutrición, seguimiento diario.</p>
-                            <a href="#contact" class="btn btn--secondary">Elegir Plan</a>                    
+              <a href="#contact" class="btn btn--secondary">Elegir Plan</a>
             </div>
-                     
           </div>
         </div>
-             
       </section>
 
-           
-      <section id="faq">
-               
+      <section id="faq" class="scroll-reveal">
         <h2>Preguntas Frecuentes</h2>
-               
         <div class="faq-container">
-                   
           <div class="faq-item">
-                       
             <h3 aria-expanded="false" aria-controls="faq1-answer">
-                            ¿Se puede cambiar de plan?               <span class="faq-toggle">+</span>            
+              ¿Se puede cambiar de plan? <span class="faq-toggle">+</span>
             </h3>
-                       
             <p id="faq1-answer">
-                            Sí, podés cambiar entre mensual y anual en cualquier momento, sin perder los beneficios
-              adquiridos.            
+              Sí, podés cambiar entre mensual y anual en cualquier momento, sin perder los beneficios adquiridos.
             </p>
-                     
           </div>
-                   
           <div class="faq-item">
-                       
             <h3 aria-expanded="false" aria-controls="faq2-answer">
-                            ¿Hay entrenadores certificados?               <span class="faq-toggle">+</span>            
+              ¿Hay entrenadores certificados? <span class="faq-toggle">+</span>
             </h3>
-                       
             <p id="faq2-answer">
-                            Todos nuestros entrenadores están certificados y capacitados en rutinas seguras y efectivas.
-                         
+              Todos nuestros entrenadores están certificados y capacitados en rutinas seguras y efectivas.
             </p>
-                     
           </div>
-                   
           <div class="faq-item">
-                       
             <h3 aria-expanded="false" aria-controls="faq3-answer">
-                            ¿Ofrecen nutrición personalizada?               <span class="faq-toggle">+</span>          
-               
+              ¿Ofrecen nutrición personalizada? <span class="faq-toggle">+</span>
             </h3>
-                       
             <p id="faq3-answer">
-                            Sí, contamos con planes nutricionales adaptados a tus objetivos y condiciones de salud.    
-                     
+              Sí, contamos con planes nutricionales adaptados a tus objetivos y condiciones de salud.
             </p>
-                     
           </div>
-                 
         </div>
-             
       </section>
 
-           
-      <section id="testimonials">
-               
+      <section id="testimonials" class="scroll-reveal">
         <h2>Testimonios</h2>
         <div class="main-container">
-                   
           <div class="testimonials-container">
-                       
             <div class="testimonials-track">
-                           
               <div class="testimonial">
                 <img src="images/cliente1.jpg" alt="Foto del cliente Ana M." />
                 <p>"Excelente atención y resultados rápidos" - Ana M.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente2.jpg" alt="Foto del cliente Juan P." />
                 <p>"Entrenadores muy profesionales y motivadores" - Juan P.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente3.jpg" alt="Foto del cliente Carla R." />
                 <p>"Las clases grupales son divertidas" - Carla R.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente4.jpg" alt="Foto del cliente Pedro G." />
                 <p>"Mi plan nutricional cambió mi vida" - Pedro G.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente5.jpg" alt="Foto del cliente Lucía F." />
                 <p>"Cumplí mis objetivos en tiempo récord" - Lucía F.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente6.jpg" alt="Foto del cliente Martín S." />
                 <p>"Ambiente profesional y motivador" - Martín S.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente1.jpg" alt="Foto del cliente Ana M." />
                 <p>"Excelente atención y resultados rápidos" - Ana M.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente2.jpg" alt="Foto del cliente Juan P." />
                 <p>"Entrenadores muy profesionales y motivadores" - Juan P.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente3.jpg" alt="Foto del cliente Carla R." />
                 <p>"Las clases grupales son divertidas" - Carla R.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente4.jpg" alt="Foto del cliente Pedro G." />
                 <p>"Mi plan nutricional cambió mi vida" - Pedro G.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente5.jpg" alt="Foto del cliente Lucía F." />
                 <p>"Cumplí mis objetivos en tiempo récord" - Lucía F.</p>
               </div>
-                           
               <div class="testimonial">
                 <img src="images/cliente6.jpg" alt="Foto del cliente Martín S." />
                 <p>"Ambiente profesional y motivador" - Martín S.</p>
               </div>
-                         
             </div>
-                     
           </div>
         </div>
-             
       </section>
 
-           
-      <section id="contact">
-               
+      <section id="contact" class="scroll-reveal">
         <h2>Contacto</h2>
-               
         <form>
-                    <input type="text" placeholder="Nombre" required />          
-          <input type="email" placeholder="Email" required />          
-          <textarea placeholder="Mensaje" required></textarea>          
-          <button type="submit" class="btn btn--primary">Enviar</button>        
+          <input type="text" placeholder="Nombre" required />
+          <input type="email" placeholder="Email" required />
+          <textarea placeholder="Mensaje" required></textarea>
+          <button type="submit" class="btn btn--primary">Enviar</button>
         </form>
-             
       </section>
     </main>
 
-       
     <footer>
-           
       <div class="footer-content">
-                <img src="images/sobre-nosotros.jpg" alt="Logo de FitLab en el footer" />        
+        <a href="#hero">
+          <img src="images/sobre-nosotros.jpg" alt="Logo de FitLab en el footer" />
+        </a>
         <div class="footer-socials">
-                    <a href="#" target="_blank"><img src="images/logofacebook.png" alt="Facebook" /></a>          
-          <a href="#" target="_blank"><img src="images/logotiktok.png" alt="TikTok" /></a>          
-          <a href="#" target="_blank"><img src="images/logoinstagram.jpg" alt="Instagram" /></a>        
+          <a href="#" target="_blank"><img src="images/logofacebook.png" alt="Facebook" /></a>
+          <a href="#" target="_blank"><img src="images/logotiktok.png" alt="TikTok" /></a>
+          <a href="#" target="_blank"><img src="images/logoinstagram.jpg" alt="Instagram" /></a>
         </div>
-               
         <p>
-                    FitLab - Entrenamiento profesional, planes personalizados y nutrición completa para alcanzar tus    
-                objetivos.        
+          FitLab - Entrenamiento profesional, planes personalizados y nutrición completa para alcanzar tus objetivos.
         </p>
-             
       </div>
-           
       <div class="footer-legal">
-               
         <ul>
-                   
           <li><a href="#">Socios</a></li>
-                   
           <li><a href="#">Atención al Socio</a></li>
-                   
           <li><a href="#">Solicitud de Baja</a></li>
-                   
           <li><a href="#">Trámite de Arrepentimiento</a></li>
-                   
           <li><a href="#">Beneficios FitLab</a></li>
-                   
           <li><a href="#">Términos y Condiciones</a></li>
-                   
           <li><a href="#">Política de Privacidad</a></li>
-                 
         </ul>
-             
       </div>
-           
       <p>© 2025 FitLab. Todos los derechos reservados.</p>
-         
     </footer>
 
-       
+    <button id="scroll-to-top" aria-label="Volver al inicio de la página">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="web.js"></script>
-     
   </body>
 </html>

@@ -153,25 +153,26 @@ section h2 {
 }
 
 /* --- SERVICIOS --- */
-/* --- NUEVA REGLA: Contenedor para limitar el ancho --- */
 .main-container {
-  max-width: 1200px; /* Le da un ancho máximo */
-  margin: 0 auto; /* Lo centra horizontalmente */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* --- REGLA EXISTENTE: Aplica la rejilla horizontal dentro de ese contenedor --- */
 .services-grid {
   display: grid;
-  /* Esto crea 3 columnas con un mínimo de 300px, usando el ancho de .main-container */
+  /* Unificado para que coincida con Planes/Testimonios */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  /* (Asegúrate de eliminar cualquier 'margin: 0 auto;' o 'max-width' duplicado de .services-grid) */
 }
 .service-card {
   background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 15px;
   transition: all 0.3s ease;
+  /* Flexbox para alinear contenido (importante para botones) */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .service-card:hover {
   transform: translateY(-10px);
@@ -191,11 +192,16 @@ section h2 {
 }
 .service-card p {
   margin-bottom: 1.5rem;
+  /* Crece para empujar el botón hacia abajo */
+  flex-grow: 1;
+}
+.service-card .btn {
+  margin-top: auto; /* Alinea el botón al fondo */
 }
 
 /* --- PLANES (MEMBRESÍA) --- */
 #planes {
-  background-color: #111; /* Fondo para contrastar con servicios */
+  background-color: #111;
 }
 .plan-toggle {
   margin-bottom: 2rem;
@@ -216,12 +222,11 @@ section h2 {
   color: var(--text-white);
 }
 .plans-grid {
-    display: grid;
-    /* Fuerza las columnas */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    align-items: center;
-    /* Remueve cualquier 'margin: 0 auto;' o 'max-width' si estaban aquí */
+  display: grid;
+  /* Unificado para que coincida con Servicios/Testimonios */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: center;
 }
 .plan-card {
   background: var(--card-bg);
@@ -230,7 +235,7 @@ section h2 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 100%;
+  height: 100%; /* Clave para la alineación */
   transition: transform 0.3s;
 }
 .plan-card:hover {
@@ -278,7 +283,6 @@ section h2 {
   justify-content: space-between;
   align-items: center;
 }
-/* Estilos para el texto de respuesta */
 .faq-item p {
   max-height: 0;
   overflow: hidden;
@@ -286,65 +290,76 @@ section h2 {
   transition: max-height 0.4s ease-out, padding 0.4s ease-out;
   color: var(--text-light);
 }
-/* Muestra el texto cuando la clase 'active' está presente */
 .faq-item.active p {
   max-height: 200px;
   padding: 0 1.5rem 1.5rem;
 }
-/* Estilos para el ícono de +/- */
 .faq-toggle {
   font-size: 1.8rem;
   color: var(--primary-color);
   transition: transform 0.3s ease;
 }
 .faq-item.active .faq-toggle {
-  transform: rotate(45deg); /* Cambia el '+' por 'x' */
+  transform: rotate(45deg);
 }
 
-/* --- TESTIMONIALS (Carrusel - SOLUCIÓN CSS-ONLY) --- */
+/* --- TESTIMONIALS (Carrusel CSS) --- */
 #testimonials {
   background-color: var(--dark-bg);
 }
+
 .testimonials-container {
   overflow: hidden;
   position: relative;
   width: 100%;
-  max-width: 1200px; /* Centra el carrusel en la pantalla */
+  max-width: 1200px;
   margin: 0 auto;
   /* Efecto de desvanecimiento en los bordes */
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
+
 .testimonials-track {
   display: flex;
   gap: 2rem;
-  /* Calcula el ancho para los 12 items (300px * 12) más los gaps (2rem * 11) */
-  width: calc(300px * 12 + 2rem * 11);
-  /* Animación más suave y controlada */
+  /* Ajustado a 320px para un tamaño similar al 1fr de las otras secciones */
+  width: calc(320px * 12 + 2rem * 11);
   animation: scroll 45s linear infinite;
+  align-items: stretch;
 }
-.testimonials-container:hover .testimonials-track {
-  animation-play-state: paused; /* Pausa al pasar el mouse (solución CSS nativa) */
-}
+
+/* Se elimina el :hover para que el carrusel no se detenga */
+
 @keyframes scroll {
   from {
     transform: translateX(0);
   }
   to {
-    /* Mueve la distancia exacta de los 6 testimonios originales + gaps */
-    transform: translateX(calc(-300px * 6 - 2rem * 6));
+    /* Mueve la distancia de los 6 testimonios originales (320px * 6 + 2rem * 6) */
+    transform: translateX(calc(-320px * 6 - 2rem * 6));
   }
 }
+
 .testimonial {
   flex-shrink: 0;
-  width: 300px; /* Ancho fijo para cada tarjeta */
+  width: 320px; /* Ancho fijo para el carrusel, alineado al mínimo de 300px */
   background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 15px;
   text-align: center;
   color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-/* ... el resto de los estilos .testimonial y .testimonial img ... */
+.testimonial img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--primary-color);
+}
 
 /* --- CONTACTO --- */
 #contact {
@@ -386,6 +401,10 @@ footer {
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
+/* Estilo para que la imagen sea interactiva */
+.footer-content a {
+  cursor: pointer;
+}
 .footer-content img {
   width: 120px;
   border-radius: 15px;
@@ -421,6 +440,61 @@ footer {
   color: var(--primary-color);
 }
 
+/* --- SCROLL TO TOP BUTTON --- */
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s, background-color 0.3s;
+}
+#scroll-to-top:hover {
+  background-color: #a31c25;
+}
+#scroll-to-top.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- SCROLL REVEAL ANIMATIONS (Fade In) --- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación de las tarjetas internas con delay */
+.services-grid > *,
+.plans-grid > *,
+.testimonials-track > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  will-change: opacity, transform;
+}
+.services-grid > *.active-item,
+.plans-grid > *.active-item,
+.testimonials-track > *.active-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* --- MENÚ HAMBURGUESA Y RESPONSIVE --- */
 .hamburger {
   display: none;
@@ -449,7 +523,7 @@ footer {
     gap: 1.5rem;
     position: absolute;
     top: 100%;
-    left: 0; /* Cambio a left: 0 para abarcar todo el ancho */
+    left: 0;
     width: 100%;
     background: var(--card-bg);
     padding: 2rem 0;
@@ -463,9 +537,6 @@ footer {
   }
   .hero-content p {
     font-size: 1.2rem;
-  }
-  .plans-grid {
-    grid-template-columns: 1fr;
   }
   .plan-premium {
     transform: scale(1);
