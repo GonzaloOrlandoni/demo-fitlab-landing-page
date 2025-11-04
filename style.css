@@ -543,38 +543,41 @@ footer {
   }
 }
 
-/* --- EFECTO DE RESPIRACIÓN APLICADO SOLO AL OVERLAY (Fondo) --- */
+/* --- EFECTO DE FLOTACIÓN VERTICAL MUY NOTORIO (Final) --- */
 
-/* 1. Definir la animación de Keyframes (Usamos el transform: scale) */
-@keyframes hero-scale-breathe-safe {
+/* 1. Definir la animación de Keyframes (Distancia y Brillo aumentados) */
+@keyframes subtleFloatNotorious {
   0% {
-    /* Inicio: tamaño normal */
-    transform: scale(1);
-    box-shadow: 0 0 10px rgba(215, 38, 49, 0.4);
+    /* Estado inicial: posición normal, sombra base */
+    transform: translateY(0px);
+    box-shadow: 0 0 15px rgba(215, 38, 49, 0.4);
   }
+
   50% {
-    /* Pico: Escala un poco más, ahora 1.03 es seguro porque está dentro del contenedor */
-    transform: scale(1.03);
-    /* Sombra más intensa */
-    box-shadow: 0 0 40px rgba(215, 38, 49, 0.9), 0 0 60px rgba(215, 38, 49, 0.6);
+    /* Pico de la flotación: SUBE 30px (doble de lo anterior) y el resplandor es máximo */
+    transform: translateY(-30px); /* ¡Más del doble de desplazamiento! */
+    box-shadow: 0 0 60px rgba(215, 38, 49, 1), /* Sombra más grande y OPACIDAD MÁXIMA */ 0 0 90px rgba(215, 38, 49, 0.8);
   }
+
   100% {
-    /* Regreso: tamaño normal */
-    transform: scale(1);
-    box-shadow: 0 0 10px rgba(215, 38, 49, 0.4);
+    /* Regreso: vuelve a la posición normal */
+    transform: translateY(0px);
+    box-shadow: 0 0 15px rgba(215, 38, 49, 0.4);
   }
 }
 
 ---
 
-/* 2. Aplicar la animación al div de superposición (.hero-overlay) */
-/* Este div cubre todo el fondo y es el que ahora "respira" */
+/* 2. Aplicar la animación al elemento que cubre el fondo (.hero-overlay) */
 .hero-overlay {
-  /* Propiedades que ya tienes: position: absolute, top/left/width/height: 100% */
+  /* Propiedades de posicionamiento aseguradas (ya deben estar así en tu archivo) */
+  position: absolute;
+  top: -2.5%;
+  left: -2.5%;
+  width: 105%;
+  height: 105%;
+  background: rgba(0, 0, 0, 0.5);
 
-  /* Asegurar que la animación no cause el scroll */
-  overflow: hidden;
-
-  /* Aplicar la animación: 7s, constante e alternando */
-  animation: hero-scale-breathe-safe 7s ease-in-out infinite alternate;
+  /* Aplicar la animación: 4.5 segundos (más rápido), constante e infinito */
+  animation: subtleFloatNotorious 4.5s ease-in-out infinite alternate;
 }
