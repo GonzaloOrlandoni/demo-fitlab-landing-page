@@ -1,6 +1,6 @@
 # 🏋️ FitLab - Landing Page de Alta Conversión
 
-![Vista previa de la Landing Page FitLab](images/gimnasio-hero.jpg)
+![Vista previa de la Landing Page FitLab](images/proyecto-fitlab.png)
 
 **[IR AL SITIO EN VIVO 🚀](https://gonzaloorlandoni.github.io/demo-fitlab-landing-page/)**
 
