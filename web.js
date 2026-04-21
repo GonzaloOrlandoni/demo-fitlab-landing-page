@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- MENÚ HAMBURGUESA ---
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
+  const navItems = document.querySelectorAll(".nav-links li a");
 
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
@@ -9,6 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const isExpanded = navLinks.classList.contains("show");
       hamburger.setAttribute("aria-expanded", isExpanded);
     });
+
+    if (navItems) {
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+          hamburger.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
   }
 
   // --- FAQ INTERACTIVO (ACORDEÓN) ---
@@ -57,12 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (scrollToTopBtn) {
     // 1. Muestra/Oculta el botón
+    let isScrolling = false;
     window.addEventListener("scroll", () => {
-      // Muestra el botón si el scroll vertical es mayor a 400px
-      if (window.scrollY > 400) {
-        scrollToTopBtn.classList.add("show");
-      } else {
-        scrollToTopBtn.classList.remove("show");
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 400) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
+          isScrolling = false;
+        });
+        isScrolling = true;
       }
     });
 
@@ -117,6 +133,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     scrollRevealSections.forEach((section) => {
       observer.observe(section);
+    });
+  }
+
+  // --- FORMULARIO CONTACTO (UX) ---
+  const form = document.querySelector("#contact form");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "¡Enviado!";
+        submitBtn.style.backgroundColor = "#28a745";
+        submitBtn.style.borderColor = "#28a745";
+
+        setTimeout(() => {
+          form.reset();
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+          submitBtn.style.backgroundColor = "";
+          submitBtn.style.borderColor = "";
+        }, 3000);
+      }
     });
   }
 });

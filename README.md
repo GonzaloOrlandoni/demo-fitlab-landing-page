@@ -1,6 +1,6 @@
 # 🏋️ FitLab - Landing Page de Alta Conversión
 
-![Vista previa de la Landing Page FitLab](images/proyecto-fitlab.png)
+![Vista previa de la Landing Page FitLab](images/proyecto-fitlab.webp)
 
 **[IR AL SITIO EN VIVO 🚀](https://gonzaloorlandoni.github.io/demo-fitlab-landing-page/)**
 
@@ -20,10 +20,10 @@ Este proyecto fue desarrollado para el portfolio de **GO Web Solutions**. Nuestr
 
 Este proyecto fue construido utilizando un stack sólido y moderno, demostrando experiencia en:
 
-- **SASS/SCSS:** Utilizado para la estilización modular (variables, anidación, parciales), garantizando un **CSS organizado** y fácil de escalar.
+- **Vanilla CSS Avanzado:** Uso de Custom Properties (variables CSS) y animaciones nativas sin dependencias externas, garantizando un código limpio y eficiente.
 - **HTML5 Semántico:** Estructura limpia y accesible, optimizada para el SEO.
-- **CSS3 (Flexbox/Grid):** Para layouts complejos y un diseño **100% _responsive_** y adaptable a cualquier dispositivo.
-- **JavaScript:** Para interacciones del DOM y lógica simple del formulario (si aplica).
+- **CSS3 (Flexbox/Grid):** Para layouts complejos y un diseño **100% _responsive_** y adaptable a cualquier dispositivo usando técnicas fluidas como `min()`.
+- **JavaScript Moderno:** Implementación de `IntersectionObserver` para animaciones en scroll fluidas, `requestAnimationFrame` para performance y manejo avanzado del estado del DOM (FAQ, formulario, menús).
 - **Vercel / GitHub Pages:** Para despliegue (Deployment).
 
 ## ✨ PRUEBA DE VALOR (Destacados del Código)
