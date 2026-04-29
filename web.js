@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
       navLinks.classList.toggle("show");
       const isExpanded = navLinks.classList.contains("show");
       hamburger.setAttribute("aria-expanded", isExpanded);
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (navItems) {
       navItems.forEach((item) => {
         item.addEventListener("click", () => {
+          hamburger.classList.remove("active");
           navLinks.classList.remove("show");
           hamburger.setAttribute("aria-expanded", "false");
         });
@@ -62,32 +64,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- SCROLL TO TOP (Volver Arriba) ---
+  // --- SCROLL TO TOP + PROGRESS BAR ---
   const scrollToTopBtn = document.getElementById("scroll-to-top");
+  const progressBar = document.getElementById("progress-bar");
 
   if (scrollToTopBtn) {
-    // 1. Muestra/Oculta el botón
     let isScrolling = false;
     window.addEventListener("scroll", () => {
       if (!isScrolling) {
         window.requestAnimationFrame(() => {
-          if (window.scrollY > 400) {
+          const scrollY = window.scrollY;
+
+          // Scroll to top button
+          if (scrollY > 400) {
             scrollToTopBtn.classList.add("show");
           } else {
             scrollToTopBtn.classList.remove("show");
           }
+
+          // Progress bar
+          if (progressBar) {
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            progressBar.style.width = ((scrollY / docHeight) * 100) + "%";
+          }
+
           isScrolling = false;
         });
         isScrolling = true;
       }
     });
 
-    // 2. Realiza el scroll al inicio de la página
     scrollToTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth", // Desplazamiento suave
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
@@ -136,27 +144,83 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- FORMULARIO CONTACTO (UX) ---
-  const form = document.querySelector("#contact form");
+  // --- FORMULARIO CONTACTO (Async con Toast) ---
+  const form = document.querySelector("#contact-form");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // Honeypot check
+      const honeypot = form.querySelector('input[name="website"]');
+      if (honeypot && honeypot.value.trim() !== "") {
+        setTimeout(() => showToast("¡Mensaje enviado con éxito!", "success"), 1500);
+        form.reset();
+        return;
+      }
+
       const submitBtn = form.querySelector('button[type="submit"]');
       if (submitBtn) {
-        const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
-        submitBtn.textContent = "¡Enviado!";
-        submitBtn.style.backgroundColor = "#28a745";
-        submitBtn.style.borderColor = "#28a745";
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+      }
 
-        setTimeout(() => {
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          showToast("¡Mensaje enviado! Te contactaremos a la brevedad. 💪", "success");
           form.reset();
+        } else {
+          showToast("Error al enviar. Intentá nuevamente.", "error");
+        }
+      } catch {
+        showToast("Error de conexión. Verificá tu internet.", "error");
+      } finally {
+        if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-          submitBtn.style.backgroundColor = "";
-          submitBtn.style.borderColor = "";
-        }, 3000);
+          submitBtn.innerHTML = "Enviar Mensaje";
+        }
       }
     });
   }
 });
+
+// =========================================
+//  SISTEMA DE TOASTS
+// =========================================
+function showToast(message, type = "info") {
+  const container = document.getElementById("toast-container");
+  if (!container) return;
+
+  const toast = document.createElement("div");
+  toast.className = `toast toast-${type}`;
+
+  let icon = '<i class="fas fa-info-circle"></i>';
+  if (type === "success") icon = '<i class="fas fa-check-circle"></i>';
+  if (type === "error") icon = '<i class="fas fa-exclamation-circle"></i>';
+
+  toast.innerHTML = `
+    <div class="toast-icon">${icon}</div>
+    <div class="toast-message"></div>
+    <button class="toast-close"><i class="fas fa-times"></i></button>
+  `;
+  toast.querySelector(".toast-message").textContent = message;
+  container.appendChild(toast);
+
+  setTimeout(() => toast.classList.add("show"), 10);
+  const timeout = setTimeout(() => closeToast(toast), 4000);
+  toast.querySelector(".toast-close").addEventListener("click", () => {
+    clearTimeout(timeout);
+    closeToast(toast);
+  });
+}
+
+function closeToast(toast) {
+  toast.classList.remove("show");
+  toast.classList.add("hide");
+  toast.addEventListener("transitionend", () => toast.remove());
+}
