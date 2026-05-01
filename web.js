@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Progress bar
           if (progressBar) {
             const docHeight = document.body.scrollHeight - window.innerHeight;
-            progressBar.style.width = ((scrollY / docHeight) * 100) + "%";
+            progressBar.style.width = (scrollY / docHeight) * 100 + "%";
           }
 
           isScrolling = false;
@@ -113,7 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
       entries.forEach((entry) => {
         const target = entry.target;
         // Seleccionamos las tarjetas internas de los grids
-        const gridItems = target.querySelectorAll(".services-grid > *, .plans-grid > *, .testimonials-track > *");
+        const gridItems = target.querySelectorAll(
+          ".services-grid > *, .plans-grid > *, .testimonials-track > *",
+        );
 
         if (entry.isIntersecting) {
           // El elemento está entrando en el viewport: Lo activamos
@@ -137,7 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
 
     scrollRevealSections.forEach((section) => {
       observer.observe(section);
@@ -153,7 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // Honeypot check
       const honeypot = form.querySelector('input[name="website"]');
       if (honeypot && honeypot.value.trim() !== "") {
-        setTimeout(() => showToast("¡Mensaje enviado con éxito!", "success"), 1500);
+        setTimeout(
+          () => showToast("¡Mensaje enviado con éxito!", "success"),
+          1500,
+        );
         form.reset();
         return;
       }
@@ -161,7 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const submitBtn = form.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i> Enviando...';
       }
 
       try {
@@ -172,7 +181,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
-          showToast("¡Mensaje enviado! Te contactaremos a la brevedad. 💪", "success");
+          showToast(
+            "¡Mensaje enviado! Te contactaremos a la brevedad. 💪",
+            "success",
+          );
           form.reset();
         } else {
           showToast("Error al enviar. Intentá nuevamente.", "error");

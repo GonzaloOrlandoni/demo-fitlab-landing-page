@@ -376,8 +376,20 @@ section h2 {
   max-width: 1200px;
   margin: 0 auto;
   /* Efecto de desvanecimiento en los bordes */
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
 }
 
 .testimonials-track {
@@ -742,7 +754,9 @@ footer {
   font-size: 1.6rem;
   text-decoration: none;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 #whatsapp-btn::before {
@@ -757,8 +771,14 @@ footer {
 }
 
 @keyframes waPulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.8); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }
 
 #whatsapp-btn:hover {
@@ -821,7 +841,9 @@ footer {
   max-width: 380px;
   transform: translateX(-120%);
   opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.4s ease;
   color: var(--text-light);
 }
 
@@ -835,10 +857,18 @@ footer {
   opacity: 0;
 }
 
-.toast-success { border-left-color: #28a745; }
-.toast-success .toast-icon { color: #28a745; }
-.toast-error { border-left-color: var(--primary-color); }
-.toast-error .toast-icon { color: var(--primary-color); }
+.toast-success {
+  border-left-color: #28a745;
+}
+.toast-success .toast-icon {
+  color: #28a745;
+}
+.toast-error {
+  border-left-color: var(--primary-color);
+}
+.toast-error .toast-icon {
+  color: var(--primary-color);
+}
 
 .toast-icon {
   font-size: 1.4rem;
